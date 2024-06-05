@@ -9,7 +9,11 @@ import lombok.Data;
 
 import java.util.Collection;
 import java.util.Collections;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Data
 @Table(name = "users")
