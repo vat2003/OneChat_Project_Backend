@@ -91,6 +91,22 @@ public class WebSecurityConfig {
                                                         .requestMatchers(POST,
                                                                         String.format("%s/users**", apiPrefix))
                                                         .permitAll()
+                                                        .requestMatchers(POST,
+                                                                        String.format("%s/messagesolo/**", apiPrefix))
+                                                        .permitAll()
+
+                                                        .requestMatchers(POST,
+                                                                        String.format("%s/messagesolo/add",
+                                                                                        apiPrefix))
+                                                        .permitAll()
+                                                        .requestMatchers(POST,
+                                                                        String.format("%s/friendrequest/**", apiPrefix))
+                                                        .permitAll()
+
+                                                        .requestMatchers(POST,
+                                                                        String.format("%s/friendrequest/addrequest",
+                                                                                        apiPrefix))
+                                                        .permitAll()
 
                                                         .requestMatchers(DELETE,
                                                                         String.format("%s/users/**", apiPrefix))

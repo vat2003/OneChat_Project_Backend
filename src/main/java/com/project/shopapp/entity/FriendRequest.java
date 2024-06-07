@@ -36,7 +36,7 @@ public class FriendRequest {
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending'")
-    private Status status;
+    private Status status = Status.PENDING;
 
     public enum Status {
         PENDING,
