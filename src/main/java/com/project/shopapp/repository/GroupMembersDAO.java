@@ -12,13 +12,11 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface GroupMembersDAO extends JpaRepository<GroupMember, Long> {
-    @Transactional
-    @Modifying
-    @Query("DELETE FROM GroupMember gm WHERE gm.group.id = :groupId AND gm.user.id = :userId")
-    void deleteGroupMemberByGroupIdAndUserId(@Param("groupId") Long groupId, @Param("userId") Long userId);
 
-    @Query("SELECT gm FROM GroupMember gm WHERE gm.user.id = :userId")
-    List<GroupMember> findGroupMembersByUserId(@Param("userId") Long userId);
+    @Query("SELECT gm.group FROM GroupMember gm WHERE gm.user.id = :userId")
+    List<Group> findGroupsByUserId(@Param("userId") Long userId);
 
+    @Query("SELECT gm.user FROM GroupMember gm WHERE gm.group.id = :groupId")
+    List<User> findUsersByGroupId(@Param("groupId") Long groupId);
 
 }

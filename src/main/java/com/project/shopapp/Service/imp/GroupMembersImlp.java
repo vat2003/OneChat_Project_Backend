@@ -16,21 +16,18 @@ public class GroupMembersImlp implements GroupMembersService {
     GroupMembersDAO groupMembersDAO;
 
     @Override
-    public GroupMember addGroupMember(GroupMember groupMember) {
-        return groupMembersDAO.save(groupMember);
+    public List<GroupMember> getAllGroupMember() {
+        return groupMembersDAO.findAll();
     }
 
     @Override
-    public List<GroupMember> getAllGroupByMember(Long member) {
-        return groupMembersDAO.findGroupMembersByUserId(member);
-
-//        return null;
+    public List<Group> findGroupsByUserIdL(Long userId) {
+        return groupMembersDAO.findGroupsByUserId(userId);
     }
 
     @Override
-    public void outGroup(Group group, User user) {
-        groupMembersDAO.deleteGroupMemberByGroupIdAndUserId(group.getGroupId(), user.getUser_id());
-
+    public List<User> findUsersByGroupId(Long groupId) {
+        return groupMembersDAO.findUsersByGroupId(groupId);
     }
 
 }

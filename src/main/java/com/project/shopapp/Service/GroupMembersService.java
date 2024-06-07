@@ -1,5 +1,6 @@
 package com.project.shopapp.Service;
 
+import com.project.shopapp.DTO.GroupMemberDTO;
 import com.project.shopapp.entity.Group;
 import com.project.shopapp.entity.GroupMember;
 import com.project.shopapp.entity.User;
@@ -7,9 +8,10 @@ import com.project.shopapp.entity.User;
 import java.util.List;
 
 public interface GroupMembersService {
-    GroupMember addGroupMember(GroupMember groupMember);
-    List<GroupMember> getAllGroupByMember(Long member);
+    List<GroupMember> getAllGroupMember();
 
-    void outGroup(Group group, User user);
+    List<Group> findGroupsByUserIdL(Long userId);
+
+    List<User> findUsersByGroupId(Long groupId);
 
 }
